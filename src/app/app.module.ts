@@ -8,6 +8,7 @@ import { EnteteComponent } from './entete/entete.component';
 import { ListeProduitComponent } from './liste-produit/liste-produit.component';
 import { DetailProduitComponent } from './detail-produit/detail-produit.component';
 import { NonTrouveComponent } from './non-trouve/non-trouve.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { NonTrouveComponent } from './non-trouve/non-trouve.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

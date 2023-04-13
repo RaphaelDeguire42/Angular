@@ -10,6 +10,7 @@ export class ListeProduitComponent {
   message:string;
   produits : IProduit[];
   prixMax:number = 10;
+  estEditable:boolean = true;
   //produits2 : Array<object>;
 
   ngOnInit()  {
