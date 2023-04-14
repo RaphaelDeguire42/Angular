@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IProduit } from '../iproduit';
+import { IProduit } from '../../iproduit';
 
 @Component({
   selector: 'app-liste-produit',
@@ -35,8 +35,9 @@ export class ListeProduitComponent {
     console.log(this.produits)
   }
 
-  verifPasCher(prix:number):boolean{
-    return (prix < this.prixMax );
+  nouveauProduit(produit:IProduit){
+    console.log(produit);
+    this.produits.push(produit)
   }
 
 

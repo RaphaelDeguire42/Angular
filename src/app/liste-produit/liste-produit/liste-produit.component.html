@@ -1,0 +1,22 @@
+<h2>Liste</h2>
+<p>Bonjour {{message}}</p>
+{{produits | json}}
+{{produits[1].prix | number: '2.2-2'}}
+
+<p>Est éditable : <input type="checkbox" [(ngModel)]="estEditable"></p>
+<app-produit *ngFor="let unProduit of produits" [unProduit]="unProduit" [prixMax]="prixMax" [(peutEditer)]="estEditable" (eventAjout)="nouveauProduit($event)"></app-produit>
+
+
+
+<!--
+    <article *ngFor="let unProduit of produits">
+    <p *ngIf="estEditable">Nom : {{unProduit.nom}}</p>
+    <p *ngIf="estEditable">Nom : <input type="text" [ngModel]="unProduit.nom"/></p>
+    <p *ngIf="estEditable">Nom : <input type="text" [(ngModel)]="unProduit.nom"/></p>
+    <p>Fabricant : {{unProduit.fabricant}}</p>
+    <p>Prix : {{unProduit.prix}} <span *ngIf="verifPasCher(unProduit.prix)">Pas cher!!!!!!</span></p> 
+    <p>Prix : {{unProduit.prix}} <span *ngIf="unProduit.prix < 10">Pas cher!!!!!!</span></p> 
+    <p *ngIf="unProduit.description">Description : {{unProduit.description}}</p>
+</article>-->
+
+
