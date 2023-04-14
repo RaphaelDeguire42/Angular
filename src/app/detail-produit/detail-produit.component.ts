@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthServService } from '../serv/auth-serv.service';
 
 @Component({
   selector: 'app-detail-produit',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./detail-produit.component.scss']
 })
 export class DetailProduitComponent {
-
+  constructor(private authServ:AuthServService){
+    authServ.setTitre("Détail")
+  }
 }

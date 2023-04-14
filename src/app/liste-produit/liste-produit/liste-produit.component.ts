@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthServService } from 'src/app/serv/auth-serv.service';
 import { IProduit } from '../../iproduit';
 
 @Component({
@@ -10,8 +11,20 @@ export class ListeProduitComponent {
   message:string;
   produits : IProduit[];
   prixMax:number = 10;
-  estEditable:boolean = true;
+  estEditable:boolean = false;
   //produits2 : Array<object>;
+
+  constructor(private authServ:AuthServService){
+    authServ.statut().subscribe((statutConnection:boolean)=>{
+      if(this.estEditable && !statutConnection){
+        this.estEditable = false;
+      }
+      console.log(statutConnection);
+    })
+    
+    authServ.setTitre("Liste des produits")
+  
+  }
 
   ngOnInit()  {
     this.produits = [{
@@ -38,6 +51,14 @@ export class ListeProduitComponent {
   nouveauProduit(produit:IProduit){
     console.log(produit);
     this.produits.push(produit)
+  }
+
+  verifAuth(){
+    if(this.estEditable){
+      if(!this.authServ.verifConnection()){
+        this.estEditable = false;
+      }
+    }
   }
 
 

@@ -1,1 +1,10 @@
-<p>entete works!</p>
+<span><a routerLink="/" routerLinkActive="actif" [routerLinkActiveOptions]="{exact:
+    true}" >Logo et nom</a> - {{titre}}</span>
+<span class="filler"></span>
+<nav>
+    <a routerLink="/produit" routerLinkActive="actif">Produits</a>
+    <button routerLink="/produit" routerLinkActive="actif">Produits</button>
+</nav>
+<aside>
+    <p>Connecté : <input type="checkbox" (change)="seConnecter()" [(ngModel)]="estConnecte"></p>
+</aside>

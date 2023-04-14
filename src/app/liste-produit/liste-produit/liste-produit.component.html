@@ -3,7 +3,7 @@
 {{produits | json}}
 {{produits[1].prix | number: '2.2-2'}}
 
-<p>Est éditable : <input type="checkbox" [(ngModel)]="estEditable"></p>
+<p>Est éditable : <input type="checkbox" (change)="verifAuth()" [(ngModel)]="estEditable"></p>
 <app-produit *ngFor="let unProduit of produits" [unProduit]="unProduit" [prixMax]="prixMax" [(peutEditer)]="estEditable" (eventAjout)="nouveauProduit($event)"></app-produit>
 
 
