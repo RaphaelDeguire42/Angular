@@ -1,7 +1,6 @@
 
 export interface IProduit {
     nom:string;
-    fabricant: string;
-    prix:number;
+    brasserie: string;
     description?:string;
 }

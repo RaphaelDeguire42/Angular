@@ -5,7 +5,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthServService {
-  private estConnecte:boolean = false;
+  private estConnecte:boolean = true;
 
   etatConnection:BehaviorSubject<boolean>;
   etatConnection$:Observable<boolean>;

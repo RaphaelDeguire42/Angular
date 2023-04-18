@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { IListeProduit } from 'src/app/iliste-produit';
+import { ApibieroService } from 'src/app/serv/apibiero.service';
 import { AuthServService } from 'src/app/serv/auth-serv.service';
 import { IProduit } from '../../iproduit';
 
@@ -11,10 +13,10 @@ export class ListeProduitComponent {
   message:string;
   produits : IProduit[];
   prixMax:number = 10;
-  estEditable:boolean = false;
+  estEditable:boolean = true;
   //produits2 : Array<object>;
 
-  constructor(private authServ:AuthServService){
+  constructor(private authServ:AuthServService, private apibiero:ApibieroService){
     authServ.statut().subscribe((statutConnection:boolean)=>{
       if(this.estEditable && !statutConnection){
         this.estEditable = false;
@@ -27,10 +29,14 @@ export class ListeProduitComponent {
   }
 
   ngOnInit()  {
-    this.produits = [{
+    this.apibiero.getBieres().subscribe((produit:IListeProduit)=>{
+      this.produits = produit.data;
+    });
+    /*this.produits = [{
       nom:"Test 1",
       prix : 45,
-      fabricant : "Compagnie XYZ"
+      fabricant : "Compagnie XYZ",
+      description : "Lorem ipsum..."
     },
     {
       nom:"Test 2",
@@ -41,9 +47,11 @@ export class ListeProduitComponent {
     {
       nom:"Test 3",
       prix : 5,
-      fabricant : "Compagnie XYZ"
+      fabricant : "Compagnie XYZ",
+      description : "Lorem ipsum..."
     },
-  ]
+  ]*/
+    
   
     console.log(this.produits)
   }

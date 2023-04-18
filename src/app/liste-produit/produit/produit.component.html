@@ -1,19 +1,33 @@
 <p>Rendre editable <input type="checkbox" (change)="changeEditable($event)" [(ngModel)]="peutEditer">
 <button (click)="ajouterProduit()">Ajouter un produit</button>
 <ng-container *ngIf="peutEditer; else nonEditable">
-    
+<fieldset>
+    <legend>ngModel</legend>
     <p>Nom : {{unProduit.nom}}</p>
     <p>Nom : <input type="text" [ngModel]="unProduit.nom"/></p>
     <p>Nom : <input type="text" [(ngModel)]="unProduit.nom"/></p>
-    <p>Fabricant : <input type="text" [(ngModel)]="unProduit.fabricant"/></p>
-    <p>Prix : <input type="number" [(ngModel)]="unProduit.prix"/></p> 
+    <p>Fabricant : <input type="text" [(ngModel)]="unProduit.brasserie"/></p>
+    <!--<p>Prix : <input type="number" [(ngModel)]="unProduit.prix"/></p> -->
     <p>Description : <textarea [(ngModel)]="unProduit.description"></textarea></p>
+</fieldset>    
+<fieldset>
+    <legend>formControl</legend>
+    <form [formGroup]="formModif">
+        <p>Nom : {{unProduit.nom}}</p>
+        <p>Nom : <input formControlName="nom" /></p>
+        <p>Fabricant : <input formControlName="brasserie" /></p>
+        <!--<p>Prix : <input formControlName="prix" /></p> -->
+        <p>Description : <textarea formControlName="description" ></textarea></p>
+        <p><button (click)="soumettre()" [disabled]="!formModif.dirty || !formModif.valid">Soumettre</button></p>
+        <p><button (click)="annuler()" [disabled]="formModif.pristine">Annuler</button></p>
+    </form>
+</fieldset>    
 </ng-container>
 
 <ng-template #nonEditable>
         <p *ngIf="peutEditer">Nom : {{unProduit.nom}}</p>
-        <p>Fabricant : {{unProduit.fabricant}}</p>
-        <p>Prix : {{unProduit.prix}} <span *ngIf="verifPasCher(unProduit.prix)">Pas cher!!!!!!</span></p> 
-        <p>Prix : {{unProduit.prix}} <span *ngIf="unProduit.prix < 10">Pas cher!!!!!!</span></p> 
+        <p>Fabricant : {{unProduit.brasserie}}</p>
+        <!--<p>Prix : {{unProduit.prix}} <span *ngIf="verifPasCher(unProduit.prix)">Pas cher!!!!!!</span></p> 
+        <p>Prix : {{unProduit.prix}} <span *ngIf="unProduit.prix < 10">Pas cher!!!!!!</span></p> -->
         <p>Description : {{unProduit.description}}</p>
 </ng-template>

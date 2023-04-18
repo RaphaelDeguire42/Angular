@@ -6,9 +6,19 @@ import { AuthServService } from './serv/auth-serv.service';
 @Injectable({
   providedIn: 'root'
 })
-export class GardienRouteGuard implements CanActivate {
+//export class GardienRouteGuard implements CanActivate {
+export class GardienRouteGuard {
   constructor(private authServ:AuthServService){}
+  
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): 
+  Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+    console.log(route)
+    console.log(state)
+
+    return this.authServ.verifConnection();
+  }
+
+  peutActiver(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): 
   Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     console.log(route)
     console.log(state)
