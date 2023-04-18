@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
@@ -19,6 +20,9 @@ export class AuthServService {
 
     this.sTitrePage= new BehaviorSubject<string>("");
     this.sTitrePage$ = this.sTitrePage.asObservable();
+
+    
+
    }
 
   verifConnection():boolean {

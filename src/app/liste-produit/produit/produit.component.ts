@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { IProduit } from 'src/app/iproduit';
+import { ApibieroService } from 'src/app/serv/apibiero.service';
 
 @Component({
   selector: 'app-produit',
@@ -15,6 +16,8 @@ export class ProduitComponent {
   @Output() eventAjout:EventEmitter<IProduit> = new EventEmitter();
 
   formModif:FormGroup;
+
+  constructor(private apibiero:ApibieroService){}
 
   ngOnInit(){
     this.formModif = new FormGroup({
@@ -49,7 +52,9 @@ export class ProduitComponent {
     //this.formModif.value.nom = "test";
     console.log(this.formModif.value)
     this.unProduit = this.formModif.value;
-
+    this.apibiero.modifierBiere(this.unProduit).subscribe((data)=>{
+      console.log(data);
+    });
   }
 
   annuler(){

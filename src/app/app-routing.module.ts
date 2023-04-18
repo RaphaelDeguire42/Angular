@@ -9,8 +9,8 @@ import { AuthServService } from './serv/auth-serv.service';
 
 const routes: Routes = [
   { path:"", component:AccueilComponent},
-  { path:"produit", component:ListeProduitComponent, canActivate:[GardienRouteGuard]},
-  //{ path:"produit", component:ListeProduitComponent, canActivate:[inject(AuthServService).statut]},
+  //{ path:"produit", component:ListeProduitComponent, canActivate:[GardienRouteGuard]},
+  { path:"produit", component:ListeProduitComponent, canActivate:[()=>inject(AuthServService).statut()]},
   { path:"produit/:id", component:DetailProduitComponent},
   { path:"accueil", redirectTo:""},
   { path:"**", component:NonTrouveComponent},
