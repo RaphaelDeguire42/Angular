@@ -1,6 +1,12 @@
 :host{
     display: flex;
-    padding: 16px;
-    height: 96px;
-    margin: 0px;
+    padding: 0px;
+    position: fixed;
+    margin-top: -128px;
+    width: 100%;
+    z-index: 999;
+}
+mat-toolbar
+{
+    position: fixed;
 }

@@ -1,4 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+html, body { height: 100%; }
+body { margin: 0px; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 p{
     font-family: Roboto;
@@ -7,6 +9,5 @@ p{
     flex-grow: 1;
 }
 body{
-    margin: 0px;
-    padding: 0px;
+   margin-top: 128px;;
 }

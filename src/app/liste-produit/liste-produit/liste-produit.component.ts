@@ -15,6 +15,7 @@ export class ListeProduitComponent {
   prixMax:number = 10;
   estEditable:boolean = true;
   //produits2 : Array<object>;
+  colonne = ['description', 'nom', 'brasserie', 'date_ajout'];
 
   constructor(private authServ:AuthServService, private apibiero:ApibieroService){
     authServ.statut().subscribe((statutConnection:boolean)=>{

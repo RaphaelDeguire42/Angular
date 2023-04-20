@@ -1,8 +1,10 @@
 .ng-dirty{
     border: 5px solid rebeccapurple;
 }
-
+:host{
+    display: block;
+}
 app-produit{
-    background-color: blue;
+        
     margin-top: 16px;
 }

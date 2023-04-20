@@ -1,10 +1,20 @@
-<span><a routerLink="/" routerLinkActive="actif" [routerLinkActiveOptions]="{exact:
-    true}" >Logo et nom</a> - {{titre}}</span>
-<span class="filler"></span>
-<nav>
-    <a routerLink="/produit" routerLinkActive="actif">Produits</a>
-    <button routerLink="/produit" routerLinkActive="actif">Produits</button>
-</nav>
-<aside>
-    <p>Connecté : <input type="checkbox" (change)="seConnecter()" [(ngModel)]="estConnecte"></p>
-</aside>
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <span><a mat-icon-button color="warn" routerLink="/" routerLinkActive="actif" [routerLinkActiveOptions]="{exact:
+        true}" ><mat-icon>coronavirus</mat-icon></a>Logo et nom - {{titre}}</span>
+        <span class="filler"></span>
+        <aside>
+            <p>Connecté : <mat-checkbox (change)="seConnecter()" [(ngModel)]="estConnecte"></mat-checkbox></p>
+        </aside>
+    </mat-toolbar-row>
+    <mat-toolbar-row>
+        <span class="filler"></span>
+        <nav>
+            <a mat-button routerLink="/produit" routerLinkActive="actif">Produits</a>
+            <button mat-raised-button routerLink="/produit" routerLinkActive="actif">Produits</button>
+        </nav>
+       
+    </mat-toolbar-row>
+        
+        
+</mat-toolbar>

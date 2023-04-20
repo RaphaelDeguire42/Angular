@@ -5,17 +5,29 @@
 <fieldset>
     <legend>ngModel</legend>
     <p>Nom : {{unProduit.nom}}</p>
-    <p>Nom : <input type="text" [ngModel]="unProduit.nom"/></p>
+    <mat-form-field >
+        <mat-label>Nom : </mat-label>
+        <input matInput type="text" [ngModel]="unProduit.nom"/>
+    </mat-form-field>
+    
     <p>Nom : <input type="text" [(ngModel)]="unProduit.nom"/></p>
     <p>Fabricant : <input type="text" [(ngModel)]="unProduit.brasserie"/></p>
     <!--<p>Prix : <input type="number" [(ngModel)]="unProduit.prix"/></p> -->
     <p>Description : <textarea [(ngModel)]="unProduit.description"></textarea></p>
+    <mat-form-field>
+        <mat-label>Description : </mat-label>
+        <textarea matInput [(ngModel)]="unProduit.description"></textarea>
+    </mat-form-field>
 </fieldset>    
 <fieldset>
     <legend>formControl</legend>
     <form [formGroup]="formModif">
         <p>Nom : {{unProduit.nom}}</p>
         <p>Nom : <input formControlName="nom" /></p>
+        <mat-form-field appearance="fill">
+            <mat-label>Nom : </mat-label>
+            <input matInput formControlName="nom"/>
+        </mat-form-field>
         <p>Fabricant : <input formControlName="brasserie" /></p>
         <!--<p>Prix : <input formControlName="prix" /></p> -->
         <p>Description : <textarea formControlName="description" ></textarea></p>
