@@ -1,1 +1,37 @@
-<p>detail-produit works!</p>
+<ng-container *ngIf="formModif">
+    <fieldset>
+      <legend>Modifier une bière</legend>
+      <form [formGroup]="formModif" >
+        <mat-form-field appearance="fill">
+          <mat-label>Nom : </mat-label>
+          <input matInput formControlName="nom" />
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Brasserie : </mat-label>
+          <input matInput formControlName="brasserie" />
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Description : </mat-label>
+          <input matInput formControlName="description" />
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Image (URL) : </mat-label>
+          <input matInput formControlName="image" />
+        </mat-form-field>
+        <div class="action">
+            <div class="action__group">
+                <button mat-raised-button color="primary" (click)="soumettre()" [disabled]="!formModif.dirty || !formModif.valid">Soumettre</button>
+                <button mat-button  (click)="annuler()" [disabled]="formModif.pristine">Annuler</button>
+
+            </div>
+            <div class="action__group">
+                <p><button mat-raised-button color="warn" (click)="supprimer()" >Supprimer</button></p>
+
+            </div>
+        </div>
+      </form>
+    </fieldset>
+  </ng-container>

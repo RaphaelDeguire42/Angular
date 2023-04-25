@@ -44,7 +44,7 @@ export class ProduitComponent {
     //console.log(evt?.target.value)
   }
   ajouterProduit(){
-    this.eventAjout.emit({nom: "toto", brasserie : "Le magicien", description : "Description"});
+
   }
 
   soumettre(){

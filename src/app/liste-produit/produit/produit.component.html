@@ -1,4 +1,5 @@
-<p>Rendre editable <input type="checkbox" (change)="changeEditable($event)" [(ngModel)]="peutEditer">
+<!--<p>Rendre editable <input type="checkbox" (change)="changeEditable($event)" [(ngModel)]="peutEditer"> -->
+
 <button (click)="ajouterProduit()">Ajouter un produit</button>
 <a routerLink="/produit/{{unProduit.id_biere}}">Voir le détail</a>
 <ng-container *ngIf="peutEditer; else nonEditable">
@@ -9,7 +10,7 @@
         <mat-label>Nom : </mat-label>
         <input matInput type="text" [ngModel]="unProduit.nom"/>
     </mat-form-field>
-    
+
     <p>Nom : <input type="text" [(ngModel)]="unProduit.nom"/></p>
     <p>Fabricant : <input type="text" [(ngModel)]="unProduit.brasserie"/></p>
     <!--<p>Prix : <input type="number" [(ngModel)]="unProduit.prix"/></p> -->
@@ -18,7 +19,7 @@
         <mat-label>Description : </mat-label>
         <textarea matInput [(ngModel)]="unProduit.description"></textarea>
     </mat-form-field>
-</fieldset>    
+</fieldset>
 <fieldset>
     <legend>formControl</legend>
     <form [formGroup]="formModif">
@@ -34,13 +35,13 @@
         <p><button (click)="soumettre()" [disabled]="!formModif.dirty || !formModif.valid">Soumettre</button></p>
         <p><button (click)="annuler()" [disabled]="formModif.pristine">Annuler</button></p>
     </form>
-</fieldset>    
+</fieldset>
 </ng-container>
 
 <ng-template #nonEditable>
         <p *ngIf="peutEditer">Nom : {{unProduit.nom}}</p>
         <p>Fabricant : {{unProduit.brasserie}}</p>
-        <!--<p>Prix : {{unProduit.prix}} <span *ngIf="verifPasCher(unProduit.prix)">Pas cher!!!!!!</span></p> 
+        <!--<p>Prix : {{unProduit.prix}} <span *ngIf="verifPasCher(unProduit.prix)">Pas cher!!!!!!</span></p>
         <p>Prix : {{unProduit.prix}} <span *ngIf="unProduit.prix < 10">Pas cher!!!!!!</span></p> -->
         <p>Description : {{unProduit.description}}</p>
 </ng-template>
