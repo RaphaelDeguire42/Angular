@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { IProduit } from '../iproduit';
+import { IBiere } from '../ibiere';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable, map } from 'rxjs';
-import { IListeProduit } from '../iliste-produit';
+import { IListeBiere } from '../iliste-biere';
+import { INouvelleBiere } from '../inouvelle-biere';
 
 @Injectable({
   providedIn: 'root'
@@ -11,32 +12,30 @@ export class ApibieroService {
   private url :string = "http://127.0.0.1:8000/webservice/php/biere/";
   constructor(private http:HttpClient) { }
 
-  getBieres():Observable<IListeProduit>{
-    return this.http.get<IListeProduit>(this.url);
+  getBieres():Observable<IListeBiere>{
+    return this.http.get<IListeBiere>(this.url);
   }
 
-  getBiere(id: number | string): Observable<IProduit> {
-    return this.http.get<{data: IProduit}>(`${this.url}/${id}`).pipe(
+  getBiere(id: number | string): Observable<IBiere> {
+    return this.http.get<{data: IBiere}>(`${this.url}/${id}`).pipe(
       map(response => {
-        const { date_ajout, date_modif, note_moyenne, note_nombre, ...data } = response.data;
+        const { note_moyenne, note_nombre, ...data } = response.data;
         return data;
       })
     );
   }
 
-
-
-  ajouterBiere(biere:IProduit):Observable<any>{
+  ajouterBiere(biere:INouvelleBiere):Observable<any>{
     let httpOption = {
       headers: new HttpHeaders({
         'Content-type': 'application/json',
         'Authorization' : 'Basic ' +btoa('biero:biero')
       })
     };
-    return this.http.post<any>(this.url+biere.id_biere, biere, httpOption);
+    return this.http.put<any>(this.url, biere, httpOption);
   };
 
-  modifierBiere(biere:IProduit):Observable<any>{
+  modifierBiere(biere:IBiere):Observable<any>{
     let httpOption = {
       headers: new HttpHeaders({
         'Content-type': 'application/json',

@@ -3,13 +3,11 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AccueilComponent } from './accueil/accueil.component';
 import { EnteteComponent } from './entete/entete.component';
-import { ListeProduitComponent } from './liste-produit/liste-produit/liste-produit.component';
-import { DetailProduitComponent } from './detail-produit/detail-produit.component';
+import { ListeBiereComponent } from './liste-biere/liste-biere.component';
+import { AjoutBiereComponent } from './ajout-biere/ajout-biere.component';
 import { NonTrouveComponent } from './non-trouve/non-trouve.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ProduitComponent } from './liste-produit/produit/produit.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -24,17 +22,18 @@ import {MatTableModule} from '@angular/material/table';
 import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSortModule } from '@angular/material/sort';
+import { NouvelleBiereDialogComponent } from './nouvelle-biere-dialog/nouvelle-biere-dialog.component';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AccueilComponent,
     EnteteComponent,
-    ListeProduitComponent,
-    DetailProduitComponent,
+    ListeBiereComponent,
+    AjoutBiereComponent,
     NonTrouveComponent,
-    ProduitComponent,
-    ConfirmationDialogComponent
+    ConfirmationDialogComponent,
+    NouvelleBiereDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -53,6 +52,7 @@ import { MatSortModule } from '@angular/material/sort';
     MatTableModule,
     MatDialogModule,
     MatSortModule,
+    MatCardModule,
   ],
   providers: [{provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'outline'}}],
   bootstrap: [AppComponent]

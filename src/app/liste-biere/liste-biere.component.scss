@@ -7,6 +7,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    padding: 125px 0 ;
 }
 app-produit{
 
@@ -34,6 +35,13 @@ tr{
 
 .mdc-data-table__cell, .mdc-data-table__header-cell{
     padding: 0 1vw;
+}
+
+#addBiere{
+    position: fixed;
+    top: 92px;
+    z-index: 3;
+    right: 10px;
 }
 
 @media screen and (min-width:720px) {

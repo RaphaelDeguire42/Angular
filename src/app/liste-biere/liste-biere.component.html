@@ -1,9 +1,8 @@
-<h2>Liste des bières</h2>
-
-<!--
-    <p>Est éditable : <input type="checkbox" (change)="verifAuth()" [(ngModel)]="estEditable"></p>
--->
-
+<title>Liste des bières</title>
+<h1>Liste des bières</h1>
+<button mat-fab id="addBiere" color="warn" (click)="openNouvelleBiereDialog()">
+    <mat-icon>add</mat-icon>
+</button>
 <mat-table [dataSource]="produits" id="table" matSort>
     <ng-container matColumnDef="image">
         <th mat-header-cell *matHeaderCellDef> Image </th>

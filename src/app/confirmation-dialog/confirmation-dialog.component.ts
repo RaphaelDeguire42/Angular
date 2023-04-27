@@ -7,7 +7,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 @Component({
   selector: 'app-confirmation-dialog',
   template: `
-    <h2 mat-dialog-title>Confirmation</h2>
+    <h2 mat-dialog-title>Veuillez confirmer...</h2>
     <mat-dialog-content>{{ data }}</mat-dialog-content>
     <mat-dialog-actions>
       <button mat-button mat-dialog-close>Annuler</button>

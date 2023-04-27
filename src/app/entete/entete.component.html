@@ -1,17 +1,7 @@
 <mat-toolbar color="primary">
     <mat-toolbar-row>
-        <span><a mat-icon-button color="warn" routerLink="/" routerLinkActive="actif" [routerLinkActiveOptions]="{exact:
-        true}" ><mat-icon>coronavirus</mat-icon></a>Logo et nom - {{titre}}</span>
-        <span class="filler"></span>
-        <aside>
-            <p>Connecté : <mat-checkbox (change)="seConnecter()" [(ngModel)]="estConnecte"></mat-checkbox></p>
-        </aside>
-    </mat-toolbar-row>
-    <mat-toolbar-row>
-        <span class="filler"></span>
-        <nav>
-            <a mat-button routerLink="/produit" routerLinkActive="actif">Produits</a>
-            <button mat-raised-button routerLink="/produit" routerLinkActive="actif">Produits</button>
-        </nav>
+        <a mat-button color="warn" routerLink="/" id="logo" routerLinkActive="actif" [routerLinkActiveOptions]="{exact:true}" color="secondary">
+            <img src="assets/img/houblon.svg" alt="" ><span  id="titre">Biero - Administration</span>
+        </a>
     </mat-toolbar-row>
 </mat-toolbar>

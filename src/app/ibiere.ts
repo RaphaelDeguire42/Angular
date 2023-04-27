@@ -1,6 +1,6 @@
 
-export interface IProduit {
-    id_biere:string | number;
+export interface IBiere {
+    id_biere:number;
     nom:string;
     brasserie: string;
     description?:string;
